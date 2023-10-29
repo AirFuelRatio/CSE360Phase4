@@ -48,9 +48,14 @@ public class LoginApp extends Application {
                 } else {
                     User user = users.get(username);
                     if (user.password.equals(password)) {
-                        // Handle successful login logic here
+                        showSuccessLoginWindow();
                     } else {
                         // Handle incorrect password logic here
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("Incorrect Password");
+                        alert.setContentText("Please check your password and try again.");
+                        alert.showAndWait();
                     }
                 }
             }
@@ -60,6 +65,20 @@ public class LoginApp extends Application {
         primaryStage.setTitle("Login App");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private void showSuccessLoginWindow() {
+        Stage successStage = new Stage();
+        VBox vbox = new VBox(10);
+        vbox.setPadding(new Insets(10, 10, 10, 10));
+
+        Label successLabel = new Label("Successfully logged in!");
+        vbox.getChildren().add(successLabel);
+
+        Scene scene = new Scene(vbox, 200, 100);
+        successStage.setTitle("Success");
+        successStage.setScene(scene);
+        successStage.show();
     }
 
     private void createUser(final String username, final String password) {
