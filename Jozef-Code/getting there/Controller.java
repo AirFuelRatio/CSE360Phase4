@@ -10,7 +10,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller {
 
@@ -52,6 +51,7 @@ public class Controller {
             timer.cancel();
             timer = null;
             timesList.add(getFormattedTime());  // add stopped time to the list
+            resetTimer();  // Reset the timer to 0
         }
     }
 
@@ -59,6 +59,11 @@ public class Controller {
         int minutes = secondsElapsed / 60;
         int seconds = secondsElapsed % 60;
         return String.format("%02d:%02d", minutes, seconds);
+    }
+
+    private void resetTimer() {
+        secondsElapsed = 0;
+        updateClockLabel();
     }
 
     private void updateClockLabel() {
