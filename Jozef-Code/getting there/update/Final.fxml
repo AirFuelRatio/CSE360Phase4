@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+    <!-- Main UI Tab -->
+    <Tab text="Main UI" closable="false">
+        <AnchorPane prefHeight="400.0" prefWidth="602.0">
+            <Button layoutX="219.0" layoutY="359.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Stop this Activity" fx:id="stopButton" onAction="#handleStopButtonAction" />
+            <MenuButton layoutX="45.0" layoutY="209.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="265.0" text="Choose a Project">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Project 1" />
+                    <MenuItem mnemonicParsing="false" text="Project 2" />
+                </items>
+            </MenuButton>
+            <Label layoutX="178.0" layoutY="41.0" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #FF0000;" text="Clock is Stopped" textAlignment="CENTER" fx:id="clockLabel">
+                <font>
+                    <Font name="Yu Gothic UI Semibold" size="21.0" />
+                </font>
+            </Label>
+            <Label layoutX="130.0" layoutY="88.0" prefHeight="11.0" prefWidth="315.0" text="1. When you start a new activity, press the 'Start an Activity' button.">
+                <font>
+                    <Font name="Yu Gothic UI Semibold" size="10.0" />
+                </font>
+            </Label>
+            <Button layoutX="219.0" layoutY="115.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Start an Activity" fx:id="startButton" onAction="#handleStartButtonAction" />
+            <Label layoutX="90.0" layoutY="163.0" prefHeight="15.0" prefWidth="421.0" text="2. Select the project, life cycle step, effort category, and deliverable from the following lists:">
+                <font>
+                    <Font name="Yu Gothic UI Semibold" size="10.0" />
+                </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="191.0" prefHeight="17.0" prefWidth="50.0" text="Project:">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="251.0" prefHeight="17.0" prefWidth="93.0" text="Effort Category:">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="332.0" layoutY="191.0" prefHeight="17.0" prefWidth="93.0" text="Life Cycle Step:">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <MenuButton layoutX="332.0" layoutY="209.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="Choose a Life Cycle Step">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Action 1" />
+                    <MenuItem mnemonicParsing="false" text="Action 2" />
+                </items>
+            </MenuButton>
+            <MenuButton layoutX="45.0" layoutY="269.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Choose Category">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Action 1" />
+                    <MenuItem mnemonicParsing="false" text="Action 2" />
+                </items>
+            </MenuButton>
+            <MenuButton layoutX="191.0" layoutY="269.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="383.0">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Action 1" />
+                    <MenuItem mnemonicParsing="false" text="Action 2" />
+                </items>
+            </MenuButton>
+            <Label layoutX="79.0" layoutY="332.0" prefHeight="15.0" prefWidth="444.0" text="3. Press the 'Stop this Activity' button to generate an effort log entry using the attributes above.">
+                <font>
+                    <Font name="Yu Gothic UI Semibold" size="10.0" />
+                </font>
+            </Label>
+        </AnchorPane>
+    </Tab>
+
+    <!-- Times Log Tab -->
+    <Tab text="Times Log" closable="false">
+        <VBox alignment="CENTER">
+            <TableView fx:id="timesTable">
+                <columns>
+                    <TableColumn fx:id="timeColumn" prefWidth="200.0" text="Stopped Times" />
+                </columns>
+            </TableView>
+        </VBox>
+    </Tab>
+</TabPane>
+
