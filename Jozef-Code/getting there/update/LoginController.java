@@ -18,6 +18,7 @@ import java.util.HashMap;
 public class LoginController {
 
     private HashMap<String, String> userDatabase = new HashMap<>();
+    private static final String COMPANY_ID = "1219104835";
 
     @FXML
     private TextField nameField;
@@ -26,10 +27,16 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
+    private TextField companyIDField;
+
+    @FXML
     private Button loginBtn;
 
+    @FXML
+    private Button signupBtn;
+
     public LoginController() {
-        // Sample users. We'll store hashed passwords for security.
+        // Sample users.
         userDatabase.put("user1", hashPassword("pass1"));
         userDatabase.put("user2", hashPassword("pass2"));
     }
@@ -42,31 +49,47 @@ public class LoginController {
         if (userDatabase.containsKey(username) && userDatabase.get(username).equals(enteredPasswordHash)) {
             loadMainScene();
         } else {
-            showErrorDialog();
+            showErrorDialog("Invalid username or password!");
         }
     }
 
-    private String hashPassword(String password) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hashedBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-            StringBuilder builder = new StringBuilder();
-            for (byte b : hashedBytes) {
-                builder.append(String.format("%02x", b));
+    @FXML
+    private void handleSignupButtonAction() {
+        String enteredCompanyID = companyIDField.getText();
+
+        if (enteredCompanyID.equals(COMPANY_ID)) {
+            String newUsername = nameField.getText();
+            String newPassword = passwordField.getText();
+            
+            if (userDatabase.containsKey(newUsername)) {
+                showErrorDialog("Username already exists!");
+            } else {
+                userDatabase.put(newUsername, hashPassword(newPassword));
+                showSuccessDialog("User successfully registered!");
             }
-            return builder.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;  // This shouldn't happen if the hashing algorithm is supported
+        } else {
+            showErrorDialog("Invalid Company ID!");
+        }
+    }
+
+    @FXML
+    private void toggleView() {
+        if (signupBtn.isVisible()) {
+            signupBtn.setVisible(false);
+            companyIDField.setVisible(false);
+            loginBtn.setVisible(true);
+        } else {
+            signupBtn.setVisible(true);
+            companyIDField.setVisible(true);
+            loginBtn.setVisible(false);
         }
     }
 
     private void loadMainScene() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Final.fxml"));
-            Parent root = fxmlLoader.load();
+            Parent root = FXMLLoader.load(getClass().getResource("Final.fxml"));
             Scene scene = new Scene(root);
-            Stage stage = (Stage) loginBtn.getScene().getWindow();
+            Stage stage = (Stage) nameField.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
@@ -74,11 +97,34 @@ public class LoginController {
         }
     }
 
-    private void showErrorDialog() {
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                hexString.append(String.format("%02x", b));
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private void showErrorDialog(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Login Failed");
+        alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText("Invalid username or password!");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void showSuccessDialog(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

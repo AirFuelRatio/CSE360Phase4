@@ -11,5 +11,8 @@
     </padding>
     <TextField fx:id="nameField" promptText="Enter your username" GridPane.rowIndex="0"/>
     <PasswordField fx:id="passwordField" promptText="Enter your password" GridPane.rowIndex="1"/>
-    <Button fx:id="loginBtn" text="Login" GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#handleLoginButtonAction"/>
+    <TextField fx:id="companyIDField" promptText="Enter Company ID" GridPane.rowIndex="2" visible="false"/>
+    <Button fx:id="loginBtn" text="Login" onAction="#handleLoginButtonAction" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <Button fx:id="signupBtn" text="Signup" onAction="#handleSignupButtonAction" GridPane.rowIndex="3" GridPane.columnIndex="1" visible="false"/>
+    <Button fx:id="toggleViewBtn" text="Switch to Signup" onAction="#toggleView" GridPane.rowIndex="4"/>
 </GridPane>
