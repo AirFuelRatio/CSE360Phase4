@@ -11,6 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+    	//Load login page scene
         Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
         primaryStage.setTitle("Login Page");
         primaryStage.setScene(new Scene(root, 600, 400));  // adjust dimensions as needed

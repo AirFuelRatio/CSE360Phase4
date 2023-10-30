@@ -34,6 +34,7 @@ public class Controller {
     private int secondsElapsed = 0;
     private final ObservableList<Entry> timesList = FXCollections.observableArrayList();
 
+    //set up user data values
     public void initialize() {
         userColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getUserName()));
         dateColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCurrentDate()));
@@ -44,6 +45,8 @@ public class Controller {
         setClockLabelInactive();  // Set initial color to red
     }
 
+    
+    //when start button is pressed do this
     @FXML
     private void handleStartButtonAction(ActionEvent event) {
         timer = new Timer(true);
@@ -57,6 +60,7 @@ public class Controller {
         setClockLabelActive();  // Set the background color to green
     }
 
+    //when stop button is pressed do this
     @FXML
     private void handleStopButtonAction(ActionEvent event) {
         if (timer != null) {
@@ -74,27 +78,31 @@ public class Controller {
             setClockLabelInactive();            // Set the background color to red
         }
     }
-
+//time for timer
     private String getFormattedTime() {
         int minutes = secondsElapsed / 60;
         int seconds = secondsElapsed % 60;
         return String.format("%02d:%02d", minutes, seconds);
     }
-
+//change from text to timer when started
     private void updateClockLabel() {
         javafx.application.Platform.runLater(() -> {
             clockLabel.setText(getFormattedTime());
         });
     }
 
+    //red when clock stopped
     private void setClockLabelActive() {
         clockLabel.setStyle("-fx-background-color: #00FF00;");  // Hex code for green
     }
 
+    //green when clock starts
     private void setClockLabelInactive() {
         clockLabel.setStyle("-fx-background-color: #FF0000;");  // Hex code for red
     }
 
+    
+    //User data collection 
     public static class Entry {
         private final String userName;
         private final String currentDate;

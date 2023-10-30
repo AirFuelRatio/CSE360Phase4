@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="274.0" prefWidth="402.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="application.LoginController">
-    <children>
-        <!-- Username Field -->
-        <TextField fx:id="nameField" layoutX="113.0" layoutY="58.0" promptText="Enter your username" />
-
-        <!-- Password Field -->
-        <PasswordField fx:id="passwordField" layoutX="113.0" layoutY="94.0" promptText="Enter your password" />
-
-        <!-- Company ID Field -->
-        <TextField fx:id="companyIDField" layoutX="113.0" layoutY="130.0" promptText="Enter Company ID" visible="false" />
-
-        <!-- Toggle Button to switch between Register and Login -->
-        <Button fx:id="toggleViewBtn" layoutX="135.0" layoutY="206.0" onAction="#toggleView" text="Register Employee" />
-
-        <!-- Login Button -->
-        <Button fx:id="loginBtn" layoutX="165.0" layoutY="174.0" onAction="#handleLoginButtonAction" text="Login" />
-
-        <!-- Signup Button -->
-        <Button fx:id="signupBtn" layoutX="165.0" layoutY="174.0" onAction="#handleSignupButtonAction" text="Signup" visible="false" />
-    </children>
-</AnchorPane>
+<GridPane fx:controller="application.LoginController" 
+          hgap="5" vgap="5" 
+          xmlns:fx="http://javafx.com/fxml">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <TextField fx:id="nameField" promptText="Enter your username" GridPane.rowIndex="0"/>
+    <PasswordField fx:id="passwordField" promptText="Enter your password" GridPane.rowIndex="1"/>
+    <TextField fx:id="companyIDField" promptText="Enter Company ID" GridPane.rowIndex="2" visible="false"/>
+    <Button fx:id="loginBtn" text="Login" onAction="#handleLoginButtonAction" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <Button fx:id="signupBtn" text="Signup" onAction="#handleSignupButtonAction" GridPane.rowIndex="3" GridPane.columnIndex="1" visible="false"/>
+    <Button fx:id="toggleViewBtn" text="Switch to Signup" onAction="#toggleView" GridPane.rowIndex="4"/>
+</GridPane>

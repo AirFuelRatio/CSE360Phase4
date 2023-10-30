@@ -34,16 +34,18 @@ public class LoginController {
 
     @FXML
     private Button signupBtn;
-    
-    @FXML
-    private Button toggleViewBtn;
 
+    //Predetermined logins, for company to fill out with usernames and password for employees
     public LoginController() {
         // Sample users.
-        userDatabase.put("user1", hashPassword("pass1"));
-        userDatabase.put("user2", hashPassword("pass2"));
+        userDatabase.put("Jozef", hashPassword("123"));
+        userDatabase.put("Tony", hashPassword("123"));
+        userDatabase.put("Deborah", hashPassword("123"));
+        userDatabase.put("Dylan", hashPassword("123"));
+        userDatabase.put("Tyler", hashPassword("123"));
     }
 
+    //Decides what the login button does, input texts get stored, and determine whether oits in the database
     @FXML
     private void handleLoginButtonAction() {
         String username = nameField.getText();
@@ -56,6 +58,7 @@ public class LoginController {
         }
     }
 
+    //stores new employee users registered username and password when signup is clicked
     @FXML
     private void handleSignupButtonAction() {
         String enteredCompanyID = companyIDField.getText();
@@ -69,17 +72,13 @@ public class LoginController {
             } else {
                 userDatabase.put(newUsername, hashPassword(newPassword));
                 showSuccessDialog("User successfully registered!");
-                // Make login button visible again and change the toggleViewBtn text
-                loginBtn.setVisible(true);
-                signupBtn.setVisible(false);
-                companyIDField.setVisible(false);
-                toggleViewBtn.setText("Back to Login");
             }
         } else {
             showErrorDialog("Invalid Company ID!");
         }
     }
 
+    //visibility of the buttons, when signup/login/register are prressed
     @FXML
     private void toggleView() {
         if (signupBtn.isVisible()) {
@@ -93,6 +92,7 @@ public class LoginController {
         }
     }
 
+    //load main console
     private void loadMainScene() {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("Final.fxml"));
@@ -105,6 +105,7 @@ public class LoginController {
         }
     }
 
+    //hashing the passwords and storing them 
     private String hashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -120,6 +121,7 @@ public class LoginController {
         }
     }
 
+    //error for incorrect login
     private void showErrorDialog(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -127,7 +129,7 @@ public class LoginController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
+//successful creation dialogue
     private void showSuccessDialog(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");
@@ -136,5 +138,7 @@ public class LoginController {
         alert.showAndWait();
     }
 }
+
+
 
 
