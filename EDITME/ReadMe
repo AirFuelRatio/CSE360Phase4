@@ -4,5 +4,9 @@ Effort Logger Console: Deborah
 Defect Console: Dylan 
 Effort and Defect Logs: Jozef
 EffortLogger Definitions Page: Tyler
-
 Tony will handle finishing the login page, including the FXML which is a seperate file. 
+
+This is JUST INCORPORATING UI DESIGN and this has nothing to do with backend code. Please make sure though that you make the required connections 
+as soon as we do reach the backend code, which will be located under the code section of scenebuilder on the right hand side of the screen (assuming you all use scenebuilder) 
+
+Do not just incorporate bs code, as it will not work if you dont understand what is going on. 
