@@ -1,0 +1,8 @@
+We will each edit the same fxml file, but i have seperated the sections in which you need to edit. I assigned each of us a tab in the main UI which you and only you can touch. 
+Sections:
+Effort Logger Console: Deborah
+Defect Console: Dylan 
+Effort and Defect Logs: Jozef
+EffortLogger Definitions Page: Tyler
+
+Tony will handle finishing the login page, including the FXML which is a seperate file. 
