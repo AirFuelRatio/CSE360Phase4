@@ -138,224 +138,224 @@ public class Controller {
     }
     
   //CHoose a Project
-        @FXML
-        private void handleDevelopmentProjectMenuItem(ActionEvent event) {
-        	selectedProject = "Development Project";
-            projectMenuButton.setText(selectedProject);
+    @FXML
+    private void handleDevelopmentProjectMenuItem(ActionEvent event) {
+        selectedProject = "Development Project";
+        projectMenuButton.setText(selectedProject);
     }
         
  
  //----------------Choose Life Cycle Step------------------------------
         
-        //Choose Life Cycle Step
-        @FXML
-        private void handleProblemUnderstandingMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Problem Understanding";
-            lifecycleMenuButton.setText(selectedProject);
+    //Choose Life Cycle Step
+    @FXML
+    private void handleProblemUnderstandingMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Problem Understanding";
+        lifecycleMenuButton.setText(selectedProject);
         }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleConceptualDesignPlanMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Conceptual Design Plan";
-            lifecycleMenuButton.setText(selectedProject);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleConceptualDesignPlanMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Conceptual Design Plan";
+        lifecycleMenuButton.setText(selectedProject);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleRequirementsMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Requirements";
-            lifecycleMenuButton.setText(selectedProject);        	
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleRequirementsMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Requirements";
+        lifecycleMenuButton.setText(selectedProject);        	
+    }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handleConceptualDesignMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Conceptual Design";
-            lifecycleMenuButton.setText(selectedProject);        	
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleConceptualDesignMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Conceptual Design";
+        lifecycleMenuButton.setText(selectedProject);        	
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleDetailedDesignPrototypeMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Detailed Design/Prototype";
-            lifecycleMenuButton.setText(selectedProject);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleDetailedDesignPrototypeMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Detailed Design/Prototype";
+        lifecycleMenuButton.setText(selectedProject);
+    }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handleDetailedDesignPlanMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Detailed Design Plan";
-            lifecycleMenuButton.setText(selectedProject);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleDetailedDesignPlanMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Detailed Design Plan";
+        lifecycleMenuButton.setText(selectedProject);
+    }
         
-      //Choose Life Cycle Step
-      //  @FXML
-        //private void handleConceptualDesignPlanMenuItem2(ActionEvent event) {
-        //	selectedLifeCycle = "Conceptual Design Plan";
-       // }
+    //Choose Life Cycle Step
+    //  @FXML
+    //private void handleConceptualDesignPlanMenuItem2(ActionEvent event) {
+    //	selectedLifeCycle = "Conceptual Design Plan";
+    // }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handleDetailedDesignReviewMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Detailed Design Review";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleDetailedDesignReviewMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Detailed Design Review";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handleImplementationPlanMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Implementaition";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleImplementationPlanMenuItem(ActionEvent event) {
+    	selectedLifeCycle = "Implementaition";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleTestCaseGenerationMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Test Case Generation";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleTestCaseGenerationMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Test Case Generation";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleSolutionSpecificationMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Solution Specification";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleSolutionSpecificationMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Solution Specification";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleSolutionReviewMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Solution Review";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleSolutionReviewMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Solution Review";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handleSolutionImplementationMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Solution Implementation";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleSolutionImplementationMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Solution Implementation";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handleUnitSystemTestMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Unit System Test";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleUnitSystemTestMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Unit System Test";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleReflectionMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Reflection";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleReflectionMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Reflection";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handleRepositoryUpdateMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Repository Update";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleRepositoryUpdateMenuItem(ActionEvent event) {
+    	selectedLifeCycle = "Repository Update";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handlePlanningMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Planning";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handlePlanningMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Planning";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleInformationGatheringMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Information Gathering";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleInformationGatheringMenuItem(ActionEvent event) {
+    	selectedLifeCycle = "Information Gathering";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleInformationUnderstandingMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Information Understanding";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleInformationUnderstandingMenuItem(ActionEvent event) {
+    	selectedLifeCycle = "Information Understanding";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleVerifyingMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Verifying";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleVerifyingMenuItem(ActionEvent event) {
+    	selectedLifeCycle = "Verifying";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handleOutliningMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Outlining";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleOutliningMenuItem(ActionEvent event) {
+    	selectedLifeCycle = "Outlining";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleDraftingMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Drafting";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleDraftingMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Drafting";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleFinalizingMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Finalizing";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleFinalizingMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Finalizing";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleTeamMeetingMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Team Meeting";
-            lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleTeamMeetingMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Team Meeting";
+        lifecycleMenuButton.setText(selectedLifeCycle);
+    }
     
-      //Choose Life Cycle Step
-        @FXML
-        private void handleCoachMeetingMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Coach Meeting";            
-        	lifecycleMenuButton.setText(selectedLifeCycle);
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleCoachMeetingMenuItem(ActionEvent event) {
+    	selectedLifeCycle = "Coach Meeting";            
+    	lifecycleMenuButton.setText(selectedLifeCycle);
+    }
         
-      //Choose Life Cycle Step
-        @FXML
-        private void handleStakeholderMeetingMenuItem(ActionEvent event) {
-        	selectedLifeCycle = "Stakeholder Meeting";
-        	lifecycleMenuButton.setText(selectedLifeCycle);
-
-        }
+    //Choose Life Cycle Step
+    @FXML
+    private void handleStakeholderMeetingMenuItem(ActionEvent event) {
+    	selectedLifeCycle = "Stakeholder Meeting";
+    	lifecycleMenuButton.setText(selectedLifeCycle);
+    }
+    
  //---------End Choose Life Cycle Step------------------------------------       
        
         
         
 //-----------------Choose Category---------------------------------------------
+    //Choose Category
+    @FXML
+    private void handleInterruptionsMenuItem(ActionEvent event) {
+    	selectedCategory = "Interruption";
+        effortMenuButton.setText(selectedCategory);
+    }
         
-      //Choose Category
-        @FXML
-        private void handleInterruptionsMenuItem(ActionEvent event) {
-        	selectedCategory = "Interruption";
-        	effortMenuButton.setText(selectedCategory);
-        }
+    //Choose Category
+    @FXML
+    private void handleDefectsMenuItem(ActionEvent event) {
+        selectedCategory = "Defects";
+        effortMenuButton.setText(selectedCategory);
+    }
         
-      //Choose Category
-        @FXML
-        private void handleDefectsMenuItem(ActionEvent event) {
-        	selectedCategory = "Defects";
-        	effortMenuButton.setText(selectedCategory);
-        }
-        
-        //Choose Category
-        @FXML
-        private void handleOthersMenuItem(ActionEvent event) {
-        	selectedCategory = "Others";
-        	effortMenuButton.setText(selectedCategory);
-        }
+    //Choose Category
+    @FXML
+    private void handleOthersMenuItem(ActionEvent event) {
+    	selectedCategory = "Others";
+        effortMenuButton.setText(selectedCategory);
+    }
  //--------------End Choose Category------------------------------
-        
+   
+    
         
  //-----------Choose Plan-----------------------------------------
       //Choose Plan
@@ -365,7 +365,6 @@ public class Controller {
         	planMenuButton.setText(selectedPlan);
 
         }
-        
       //Choose Plan
         @FXML
         private void handleRiskManagementPlanMenuItem(ActionEvent event) {
@@ -379,9 +378,9 @@ public class Controller {
         	planMenuButton.setText(selectedPlan);
         }
         
-      //Choose Plan
-      //  @FXML
-       // private void handleInterruptionsMenuItem(ActionEvent event) {
+        //Choose Plan
+        //  @FXML
+        // private void handleInterruptionsMenuItem(ActionEvent event) {
         //	selectedPlan = "Conceptual Design Plan";
         //}
         
@@ -415,9 +414,7 @@ public class Controller {
     
     
     
-//End of Handle all Effort Console Menu Items
-    
-    
+//End of Handle all Effort Console Menu Items -------------------------------
     
 //time for timer
     private String getFormattedTime() {
@@ -442,11 +439,21 @@ public class Controller {
     private void setClockLabelInactive() {
         clockLabel.setStyle("-fx-background-color: #FF0000;");  // Hex code for red
     }
+// ----------------------------------------------------------------------------------------
 
     
+// PLANNING POKER BACKEND -----------------------------------------------------------------
+    @FXML
+    private void handleStoryPoints(ActionEvent event) { 
+    	
+    }    
+    
+// -----------------------------------------------------------------------------------------    
+// EFFORT LOG BACKEND ----------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
     //User data collection 
     public static class Entry {
-        private final String userName;
+    	private final String userName;
         private final String currentDate;
         private final String currentTime;
         private final String clockTimeElapsed;
@@ -500,3 +507,4 @@ public class Controller {
         }
     }
 }
+// --------------------------------------------------------------------------------------------------------
