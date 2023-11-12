@@ -1,6 +1,7 @@
 package application;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,15 +11,21 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 
 public class Controller {
-
     @FXML
     private Button startButton;
     @FXML
     private Button stopButton;
     @FXML
     private Label clockLabel;
+    
+    // Columns located in the Effort Log -----------------
     @FXML
     private TableView<Entry> timesTable;
     @FXML
@@ -38,6 +45,11 @@ public class Controller {
     @FXML
     private TableColumn<Entry, String> planColumn;
     @FXML
+    private TableColumn<Entry, Integer> storypointsColumn;
+    
+    
+    // MenuButtons located in the Effort Console ----------
+    @FXML
     private MenuButton projectMenuButton;
     @FXML
     private MenuButton lifecycleMenuButton;
@@ -46,12 +58,30 @@ public class Controller {
     @FXML
     private MenuButton planMenuButton;
     
+    // ComboBoxes located in the Planning Poker page -------
+    @FXML
+    private ComboBox<String> projectComboBox;
+    @FXML
+    private ComboBox<String> lifecycleComboBox;
+    @FXML
+    private ComboBox<String> effortComboBox;
+    @FXML
+    private ComboBox<String> planComboBox;
+    
+    @FXML
+    private TextField storyPoints1;
+    @FXML
+    private TextField storyPoints2;
+    
+    @FXML
+    private TextField playerCountTextField;
     
 
     private String selectedProject = "";
     private String selectedLifeCycle = "";
     private String selectedCategory = "";
     private String selectedPlan = "";
+    private Integer selectedStoryPoints = 0;
     
     private Timer timer;
     private int secondsElapsed = 0;
@@ -68,11 +98,21 @@ public class Controller {
         lifeCycleColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getLifeCycle()));
         categoryColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCategory()));
         planColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getPlan()));
-        
+        storypointsColumn.setCellValueFactory(data -> new SimpleIntegerProperty(data.getValue().getStoryPoints()).asObject());
         timesTable.setItems(timesList);
         setClockLabelInactive();  // Set initial color to red
-       
-
+        
+        // ComboBoxes in the Planning Poker page -----------------------------------------------------------------
+        projectComboBox.setItems(FXCollections.observableArrayList("Business Project", "Development Project"));
+        lifecycleComboBox.setItems(FXCollections.observableArrayList("Problem Understanding","Conceptual Design Plan",
+        "Requirements","Conceptual Design","Conceptual Design Review","Detailed Design Plan","Detailed Design/Prototype",
+        "Detailed Design Review","Implementation Plan","Test Case Generation","Solution Specification","Solution Review",
+        "Solution Implementation","Unit/System Test","Reflection","Repository Update","Planning","Information Gathering",
+        "Information Understanding","Verifying","Outlining","Drafting","Finalizing"));
+        effortComboBox.setItems(FXCollections.observableArrayList("Plans", "Deliverables","Interruptions","Defects","Other"));
+        planComboBox.setItems(FXCollections.observableArrayList("Project Plan", "Risk Management Plan", 
+        "Conceptual Design Plan","Detailed Design Plan", "Implementation Plan"));
+        
     }
 
     
@@ -98,6 +138,10 @@ public class Controller {
             timer.cancel();
             timer = null;
             
+            System.out.println(storyPoints1.getText().isEmpty());
+            
+            selectedStoryPoints = Integer.valueOf(storyPoints1.getText());
+            //selectedStoryPoints = Integer.valueOf(storyPoints.getText());
             Entry entry = new Entry("UserName", 
             						
                                     LocalDate.now().toString(), 
@@ -106,7 +150,8 @@ public class Controller {
                                     selectedProject,
                                     selectedLifeCycle,
                                     selectedCategory,
-                                    selectedPlan);
+                                    selectedPlan,
+                                    selectedStoryPoints);
             						
 			//String selectedPlan;
 			//String selectedCategory;
@@ -119,6 +164,7 @@ public class Controller {
             selectedLifeCycle = "";
             selectedCategory = "";
             selectedPlan = "";
+            selectedStoryPoints = 0;
             
             secondsElapsed = 0;                 // reset the timer
             updateClockLabel();                 // update the clock label to show 00:00
@@ -205,7 +251,7 @@ public class Controller {
     //Choose Life Cycle Step
     @FXML
     private void handleImplementationPlanMenuItem(ActionEvent event) {
-    	selectedLifeCycle = "Implementaition";
+    	selectedLifeCycle = "Implementation";
         lifecycleMenuButton.setText(selectedLifeCycle);
     }
         
@@ -336,7 +382,7 @@ public class Controller {
     //Choose Category
     @FXML
     private void handleInterruptionsMenuItem(ActionEvent event) {
-    	selectedCategory = "Interruption";
+    	selectedCategory = "Interruptions";
         effortMenuButton.setText(selectedCategory);
     }
         
@@ -404,14 +450,6 @@ public class Controller {
         
  //End MenuItem Actions------------------------------------
         
-        
-        
-    
-    
-    
-    
-    
-    
     
     
 //End of Handle all Effort Console Menu Items -------------------------------
@@ -442,13 +480,7 @@ public class Controller {
 // ----------------------------------------------------------------------------------------
 
     
-// PLANNING POKER BACKEND -----------------------------------------------------------------
-    @FXML
-    private void handleStoryPoints(ActionEvent event) { 
-    	
-    }    
-    
-// -----------------------------------------------------------------------------------------    
+ 
 // EFFORT LOG BACKEND ----------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
     //User data collection 
@@ -461,8 +493,10 @@ public class Controller {
         private final String lifeCycleStepChosen;
         private final String categoryChosen;
         private final String planChosen;
+        private final Integer storypoints;
 
-        public Entry(String userName, String currentDate, String currentTime, String clockTimeElapsed, String projectChosen, String lifeCycleStepChosen, String categoryChosen, String planChosen) {
+        public Entry(String userName, String currentDate, String currentTime, String clockTimeElapsed, String projectChosen, 
+        String lifeCycleStepChosen, String categoryChosen, String planChosen, Integer storypoints) {
             this.userName = userName;
             this.currentDate = currentDate;
             this.currentTime = currentTime;
@@ -471,6 +505,7 @@ public class Controller {
             this.lifeCycleStepChosen = lifeCycleStepChosen;
             this.categoryChosen = categoryChosen;
             this.planChosen = planChosen;
+            this.storypoints = storypoints;
             
         }
 
@@ -505,6 +540,68 @@ public class Controller {
         public String getPlan() {
         	return planChosen;
         }
+        
+        public int getStoryPoints() {
+        	return storypoints;
+        }
     }
+    
+    @FXML
+    private void handlePlayerCount(ActionEvent event) {
+        int playerCount = Integer.parseInt(playerCountTextField.getText()); // Convert to int (add error handling as necessary)
+        loadPokerScene(playerCount);
+    }
+
+    
+    @FXML
+    private void handleStoryPoints(ActionEvent event) {
+        String selectedProject = projectComboBox.getValue();
+        String selectedLifeCycle = lifecycleComboBox.getValue();
+        String selectedEffort = effortComboBox.getValue();
+        String selectedPlan = planComboBox.getValue();
+        
+    	//int playerCount = Integer.parseInt(playerCountTextField.getText());
+    	//loadPokerScene(3);
+        
+        for (Entry entry : timesList) {
+            // Check if the values in the current row match the selected values
+            if (entry.getProject().equals(selectedProject) &&
+                entry.getLifeCycle().equals(selectedLifeCycle) &&
+                entry.getCategory().equals(selectedEffort) &&
+                entry.getPlan().equals(selectedPlan)) {
+                // Matching values found, you can perform further actions here
+                System.out.println("Matching row found: " + entry.getUserName());
+                
+                storyPoints1.setText(String.valueOf(entry.getStoryPoints()));
+                storyPoints2.setText(String.valueOf(entry.getStoryPoints()));
+            }
+            else {
+            	System.out.println("Not Found!!!");
+            	System.out.println("Entry 1: " + entry.getProject() + ", " + entry.getLifeCycle()
+            	+ ", " + entry.getCategory() + ", " + entry.getPlan());
+            	System.out.println("Entry 2: " + selectedProject + ", " + selectedLifeCycle
+            	+ ", " + selectedEffort + ", " + selectedPlan);
+            	loadPokerScene(3);
+
+            }
+        }
+    }
+    
+    private void loadPokerScene(int playerCount) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PokerPage.fxml"));
+            Parent root = loader.load();
+            PokerController pokerController = loader.getController();
+            pokerController.setPlayerCount(playerCount); // Assuming there is a method setPlayerCount in PokerController
+            Stage stage = new Stage();
+            stage.setTitle("Planning Poker");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } 
 }
 // --------------------------------------------------------------------------------------------------------
+
+
