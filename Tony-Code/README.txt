@@ -1,1 +1,1 @@
-This is a work in progress authored by Anthony Hong.
+Planning poker implementation authored by Anthony Hong.
