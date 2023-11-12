@@ -50,6 +50,8 @@ public class Controller {
     private MenuButton effortMenuButton;
     @FXML
     private MenuButton planMenuButton;
+    @FXML
+    private TextField playerCountTextField;
     
     
 
@@ -449,22 +451,29 @@ public class Controller {
     
 // PLANNING POKER BACKEND -----------------------------------------------------------------
     @FXML
+    private void handlePlayerCount(ActionEvent event) {
+        int playerCount = Integer.parseInt(playerCountTextField.getText()); // Convert to int (add error handling as necessary)
+
+        loadPokerScene(playerCount);
+    }
+    
+    @FXML
     private void handleStoryPoints(ActionEvent event) { 
-    	loadPokerScene();
+    	int playerCount = Integer.parseInt(playerCountTextField.getText());
+    	loadPokerScene(playerCount);
     }    
     
-    private void loadPokerScene() {
+    private void loadPokerScene(int playerCount) {
         try {
-            // Load the FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PokerPage.fxml"));
             Parent root = loader.load();
 
-            // Create a new stage and set the scene
+            PokerController pokerController = loader.getController();
+            pokerController.setPlayerCount(playerCount); // Assuming there is a method setPlayerCount in PokerController
+
             Stage stage = new Stage();
             stage.setTitle("Planning Poker");
             stage.setScene(new Scene(root));
-
-            // Show the new stage
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
