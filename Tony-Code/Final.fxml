@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -213,7 +214,9 @@
                   </items>
                </MenuButton>
                <Label layoutX="240.0" layoutY="14.0" text="Input Information" />
-               <Button layoutX="245.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleStoryPoints" text="Get Story Points" />
+               <Button layoutX="249.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleStoryPoints" text="Get Story Points" />
+               <TextField layoutX="221.0" layoutY="237.0" />
+               <Label layoutX="114.0" layoutY="242.0" text="Number of players:" />
             </children>
          </AnchorPane>
       </content>
