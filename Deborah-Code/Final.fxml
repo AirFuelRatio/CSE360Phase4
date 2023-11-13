@@ -174,6 +174,57 @@
          </AnchorPane>
       </content>
    </Tab>
+   <Tab closable="false" text="Definitions">
+      <content>
+         <VBox alignment="CENTER">
+            <children>
+               <TableView fx:id="definitionsTable1">
+                  <columns>
+                     <TableColumn fx:id="userColumn1" prefWidth="100.0" text="Project Names" />
+                     <TableColumn fx:id="dateColumn1" prefWidth="100.0" text="1" />
+                     <TableColumn fx:id="timeColumn1" prefWidth="100.0" text="2" />
+                     <TableColumn fx:id="elapsedTimeColumn1" prefWidth="150.0" text="3" />
+                     <TableColumn fx:id="projectColumn1" prefWidth="150.0" text="4" />
+                     <TableColumn fx:id="lifeCycleColumn1" prefWidth="150.0" text="5" />
+                     <TableColumn fx:id="categoryColumn1" prefWidth="150.0" text="6" />
+                     <TableColumn fx:id="planColumn1" prefWidth="150.0" text="7" />
+                     <TableColumn fx:id="storypointsColumn1" prefWidth="150.0" text="8" />
+                     <TableColumn fx:id="elapsedTimeColumn11" prefWidth="150.0" text="9" />
+                     <TableColumn fx:id="projectColumn11" prefWidth="150.0" text="10" />
+                     <TableColumn fx:id="projectColumn111" prefWidth="150.0" text="11" />
+                     <TableColumn fx:id="projectColumn1111" prefWidth="150.0" text="12" />
+                     <TableColumn fx:id="projectColumn11111" prefWidth="150.0" text="13" />
+                     <TableColumn fx:id="projectColumn111111" prefWidth="150.0" text="14" />
+                     <TableColumn fx:id="projectColumn1111111" prefWidth="150.0" text="15" />
+                     <TableColumn fx:id="projectColumn11111111" prefWidth="150.0" text="16" />
+                     <TableColumn fx:id="projectColumn111111111" prefWidth="150.0" text="17" />
+                     <TableColumn fx:id="projectColumn1111111111" prefWidth="150.0" text="19" />
+                     <TableColumn fx:id="projectColumn11111111111" prefWidth="150.0" text="20" />
+                     <TableColumn fx:id="projectColumn111111111111" prefWidth="150.0" text="21" />
+                     <TableColumn fx:id="projectColumn1111111111111" prefWidth="150.0" text="22" />
+                     <TableColumn fx:id="projectColumn11111111111111" prefWidth="150.0" text="23" />
+                     <TableColumn fx:id="projectColumn111111111111111" prefWidth="150.0" text="24" />
+                     <TableColumn fx:id="projectColumn1111111111111111" prefWidth="150.0" text="25" />
+                  </columns>
+               </TableView>
+               <TableView fx:id="definitionsTable2" layoutX="10.0" layoutY="10.0">
+                  <columns>
+                     <TableColumn fx:id="stepNumber" prefWidth="100.0" text="Step Number" />
+                     <TableColumn fx:id="lifeCycleColumn2" prefWidth="150.0" text="Life Cycle Steps" />
+                     <TableColumn fx:id="categoryColumn2" prefWidth="150.0" text="Effort Categories" />
+                     <TableColumn fx:id="planColumn2" prefWidth="150.0" text="Plans" />
+                     <TableColumn fx:id="deliverableColumn2" prefWidth="150.0" text="Deliverables" />
+                     <TableColumn fx:id="interruptionColumn2" prefWidth="150.0" text="Interruptions" />
+                     <TableColumn fx:id="defectColumn2" prefWidth="150.0" text="Defect Categories" />
+                  </columns>
+               </TableView>
+            </children>
+         </VBox>
+      </content>
+   </Tab>
+
+</TabPane>
+   </Tab>
 
 </TabPane>
 
