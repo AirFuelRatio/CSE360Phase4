@@ -88,6 +88,35 @@ public class Controller {
     private final ObservableList<Entry> timesList = FXCollections.observableArrayList();
    
 
+    // Definitions Page initialization --------------
+    @FXML
+    private TableView<Definition> definitionsTable2;
+    //@FXML
+    //private TableColumn<Definition, int> stepNumber;
+    //@FXML
+    //private TableColumn<Definition, String> lifeCycleColumn2;
+    @FXML
+    private TableColumn<Definition, String> categoryColumn2;
+    @FXML
+    private TableColumn<Definition, String> planColumn2;
+    @FXML
+    private TableColumn<Definition, String> deliverableColumn2;
+    @FXML
+    private TableColumn<Definition, String> interruptionColumn2;
+    @FXML
+    private TableColumn<Definition, String> defectColumn2;
+    
+    ObservableList<Definition> definitionsList = FXCollections.observableArrayList(
+    		new Definition(1, "Problem Understanding", "Plans", "Project Plan", "Conceptual Design",
+    				"Break", "Not Specified"),
+    		new Definition(2, "Conceptual Design Plan", "Deliverables", "Risk Management Plan", "Detailed Design",
+    				"Phone", "10 Docummentation"),
+    		new Definition(3, "Requirements", "Interruptions", "Conceptual Design Plan", "Test Cases",
+    				"Teammate", "20 Syntax"),
+    		new Definition(4, "Conceptual Design", "Plans", "Project Management", "Conceptual Design",
+    				"Break", "Not Specified")
+    		);
+    
     //set up user data values
     public void initialize() {
         userColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getUserName()));
@@ -479,7 +508,21 @@ public class Controller {
     }
 // ----------------------------------------------------------------------------------------
 
-    
+    public class Definition {
+    	int number; 
+    	String lifeCycleStep, effortCategory, plan, deliverable, interruption, defectCategory;
+    	
+    	public Definition(int number, String lifeCycleStep, String effortCategory, String plan, String deliverable,
+    	String interruption, String defectCategory) {
+    		this.number = number;
+    		this.lifeCycleStep = lifeCycleStep;
+    		this.effortCategory = effortCategory;
+    		this.plan = plan;
+    		this.deliverable = deliverable;
+    		this.interruption = interruption;
+    		this.defectCategory = defectCategory;
+    	}
+    }
  
 // EFFORT LOG BACKEND ----------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
@@ -549,7 +592,7 @@ public class Controller {
     @FXML
     private void handlePlayerCount(ActionEvent event) {
         int playerCount = Integer.parseInt(playerCountTextField.getText()); // Convert to int (add error handling as necessary)
-        loadPokerScene(playerCount);
+        //loadPokerScene(playerCount);
     }
 
     
@@ -561,7 +604,12 @@ public class Controller {
         String selectedPlan = planComboBox.getValue();
         
     	//int playerCount = Integer.parseInt(playerCountTextField.getText());
-    	//loadPokerScene(3);
+        if(timesTable.getItems().isEmpty()) {
+        	loadPokerScene(3);
+        	
+        	
+        }
+    	
         
         for (Entry entry : timesList) {
             // Check if the values in the current row match the selected values
