@@ -64,14 +64,12 @@
             <MenuButton fx:id="lifecycleMenuButton" layoutX="336.0" layoutY="182.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="Choose a Life Cycle Step">
                 <items>
                     <MenuItem mnemonicParsing="false" onAction="#handleProblemUnderstandingMenuItem" text="Problem Understanding" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleConceptualDesignPlanMenuItem" text="Conceptual Design Plan " />
+                    <MenuItem mnemonicParsing="false" onAction="#handleConceptualDesignPlanMenuItem2" text="Conceptual Design Plan " />
                <MenuItem mnemonicParsing="false" onAction="#handleRequirementsMenuItem" text="Requirements" />
                <MenuItem mnemonicParsing="false" onAction="#handleConceptualDesignMenuItem" text="Conceptual Design" />
                <MenuItem mnemonicParsing="false" onAction="#handleDetailedDesignPrototypeMenuItem" text="Detailed Design/Prototype" />
-               <MenuItem mnemonicParsing="false" onAction="#handleDetailedDesignPlanMenuItem" text="Detailed Design Plan" />
-               <MenuItem mnemonicParsing="false" onAction="#handleConceptualDesignPlanMenuItem" text="Conceptual Design Plan " />
+               <MenuItem mnemonicParsing="false" onAction="#handleDetailedDesignPlanMenuItem2" text="Detailed Design Plan" />
                <MenuItem mnemonicParsing="false" onAction="#handleDetailedDesignReviewMenuItem" text="Detailed Design Review" />
-               <MenuItem mnemonicParsing="false" onAction="#handleImplementationPlanMenuItem" text="Implementation Plan" />
                <MenuItem mnemonicParsing="false" onAction="#handleTestCaseGenerationMenuItem" text="Test Case Generation " />
                <MenuItem mnemonicParsing="false" onAction="#handleSolutionSpecificationMenuItem" text="Solution Specification" />
                <MenuItem mnemonicParsing="false" onAction="#handleSolutionReviewMenuItem" text="Solution Review" />
@@ -89,6 +87,8 @@
                <MenuItem mnemonicParsing="false" onAction="#handleTeamMeetingMenuItem" text="Team Meeting" />
                <MenuItem mnemonicParsing="false" onAction="#handleCoachMeetingMenuItem" text="Coach Meeting" />
                <MenuItem mnemonicParsing="false" onAction="#handleStakeholderMeetingMenuItem" text="Stakeholder Meeting" />
+               <MenuItem mnemonicParsing="false" onAction="#handleConceptualDesignReviewMenuItem" text="Conceptual Design Review" />
+               <MenuItem mnemonicParsing="false" onAction="#handleImplementationPlanMenuItem2" text="Implementation Plan" />
                 </items>
             </MenuButton>
             <MenuButton fx:id="effortMenuButton" layoutX="45.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Choose Category">
@@ -224,5 +224,6 @@
    </Tab>
 
 </TabPane>
+
 
 
