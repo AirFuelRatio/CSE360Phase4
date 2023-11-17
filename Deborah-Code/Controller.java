@@ -226,49 +226,43 @@ public class Controller {
     @FXML
     private void handleProblemUnderstandingMenuItem(ActionEvent event) {
         selectedLifeCycle = "Problem Understanding";
-        lifecycleMenuButton.setText(selectedProject);
+        lifecycleMenuButton.setText(selectedLifeCycle);
         }
         
     //Choose Life Cycle Step
     @FXML
-    private void handleConceptualDesignPlanMenuItem(ActionEvent event) {
+    private void handleConceptualDesignPlanMenuItem2(ActionEvent event) {
         selectedLifeCycle = "Conceptual Design Plan";
-        lifecycleMenuButton.setText(selectedProject);
+        lifecycleMenuButton.setText(selectedLifeCycle);
     }
         
     //Choose Life Cycle Step
     @FXML
     private void handleRequirementsMenuItem(ActionEvent event) {
         selectedLifeCycle = "Requirements";
-        lifecycleMenuButton.setText(selectedProject);        	
+        lifecycleMenuButton.setText(selectedLifeCycle);        	
     }
     
     //Choose Life Cycle Step
     @FXML
     private void handleConceptualDesignMenuItem(ActionEvent event) {
         selectedLifeCycle = "Conceptual Design";
-        lifecycleMenuButton.setText(selectedProject);        	
+        lifecycleMenuButton.setText(selectedLifeCycle);        	
     }
-        
-    //Choose Life Cycle Step
+    
+  //Choose Life Cycle Step
     @FXML
-    private void handleDetailedDesignPrototypeMenuItem(ActionEvent event) {
-        selectedLifeCycle = "Detailed Design/Prototype";
-        lifecycleMenuButton.setText(selectedProject);
+    private void handleConceptualDesignReviewMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Conceptual Design Review";
+        lifecycleMenuButton.setText(selectedLifeCycle);        	
     }
     
     //Choose Life Cycle Step
     @FXML
-    private void handleDetailedDesignPlanMenuItem(ActionEvent event) {
-        selectedLifeCycle = "Detailed Design Plan";
-        lifecycleMenuButton.setText(selectedProject);
+    private void handleDetailedDesignPrototypeMenuItem(ActionEvent event) {
+        selectedLifeCycle = "Detailed Design/Prototype";
+        lifecycleMenuButton.setText(selectedLifeCycle);
     }
-        
-    //Choose Life Cycle Step
-    //  @FXML
-    //private void handleConceptualDesignPlanMenuItem2(ActionEvent event) {
-    //	selectedLifeCycle = "Conceptual Design Plan";
-    // }
     
     //Choose Life Cycle Step
     @FXML
@@ -277,13 +271,21 @@ public class Controller {
         lifecycleMenuButton.setText(selectedLifeCycle);
     }
     
-    //Choose Life Cycle Step
+   //Choose Life Cycle Step
     @FXML
-    private void handleImplementationPlanMenuItem(ActionEvent event) {
-    	selectedLifeCycle = "Implementation";
+    private void handleDetailedDesignPlanMenuItem2(ActionEvent event) {
+        selectedLifeCycle = "Detailed Design Plan";
         lifecycleMenuButton.setText(selectedLifeCycle);
     }
         
+  //Choose Life Cycle Step
+    @FXML
+    private void handleImplementationPlanMenuItem2(ActionEvent event) {
+    	selectedLifeCycle = "Implementation Plan";
+    	lifecycleMenuButton.setText(selectedLifeCycle);
+    	System.out.println("life cycle");
+    }
+    
     //Choose Life Cycle Step
     @FXML
     private void handleTestCaseGenerationMenuItem(ActionEvent event) {
@@ -408,6 +410,18 @@ public class Controller {
         
         
 //-----------------Choose Category---------------------------------------------
+  //Choose Category
+    @FXML
+    private void handlePlansMenuItem(ActionEvent event) {
+    	selectedCategory = "Plans";
+        effortMenuButton.setText(selectedCategory);
+    }
+  //Choose Category
+    @FXML
+    private void handleDeliverablesMenuItem(ActionEvent event) {
+    	selectedCategory = "Deliverables";
+        effortMenuButton.setText(selectedCategory);
+    }
     //Choose Category
     @FXML
     private void handleInterruptionsMenuItem(ActionEvent event) {
@@ -446,35 +460,27 @@ public class Controller {
         	selectedPlan = "Risk Management Plan";
         	planMenuButton.setText(selectedPlan);
         }
+        //Choose Plan 
         
         @FXML
-        private void handlePlansMenuItem(ActionEvent event) {
-        	selectedPlan = "Plans";
+        private void handleConceptualDesignPlanMenuItem(ActionEvent event) {
+        	selectedPlan = "Conceptual Design Plan";
         	planMenuButton.setText(selectedPlan);
-        }
-        
-        //Choose Plan
-        //  @FXML
-        // private void handleInterruptionsMenuItem(ActionEvent event) {
-        //	selectedPlan = "Conceptual Design Plan";
-        //}
-        
-        //Choose Plan
-        @FXML
-        private void handleDeliverablesMenuItem(ActionEvent event) {
-        	selectedPlan = "Deliverables";
-        	planMenuButton.setText(selectedPlan);
-
-        }
-        
+        }  
       //Choose Plan
         @FXML
-        private void handleImplementationPlanMenuItem2(ActionEvent event) {
+        private void handleDetailedDesignPlanMenuItem(ActionEvent event) {
+        	selectedPlan = "Detailed Design Plan";
+        	planMenuButton.setText(selectedPlan);
+        }
+       //Choose Plan
+        @FXML
+        private void handleImplementationPlanMenuItem(ActionEvent event) {
         	selectedPlan = "Implementation Plan";
         	planMenuButton.setText(selectedPlan);
+        	System.out.println("plan");
 
         }
-        
  //----------End Choose plan ---------------------------------------
         
  //End MenuItem Actions------------------------------------
@@ -651,5 +657,4 @@ public class Controller {
     } 
 }
 // --------------------------------------------------------------------------------------------------------
-
 
