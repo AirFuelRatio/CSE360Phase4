@@ -681,36 +681,39 @@ public class Controller {
         String selectedLifeCycle = lifecycleComboBox1.getValue();
         String selectedEffort = effortComboBox1.getValue();
         String selectedPlan = planComboBox1.getValue();
-        
-//        if(timesTable.getItems().isEmpty()) {
-//        	loadEditScene();
-//        }
-    	
+
+        // Create an instance of SearchData with the selected values
+        SearchData searchData = new SearchData(selectedProject, selectedLifeCycle, selectedEffort, selectedPlan);
         
         for (Entry entry : timesList) {
-            // Check if the values in the current row match the selected values
-            if (entry.getProject().equals(selectedProject) &&
-                entry.getLifeCycle().equals(selectedLifeCycle) &&
-                entry.getCategory().equals(selectedEffort) &&
-                entry.getPlan().equals(selectedPlan)) {
-                // Matching values found, you can perform further actions here
-                System.out.println("Matching row found: " + entry.getUserName());
-                loadEditScene(); // Load editor window
-            }
-            else {
-            	System.out.println("Not Found!!!");
-            }
-        }
+          // Check if the values in the current row match the selected values
+          if (entry.getProject().equals(selectedProject) &&
+              entry.getLifeCycle().equals(selectedLifeCycle) &&
+              entry.getCategory().equals(selectedEffort) &&
+              entry.getPlan().equals(selectedPlan)) {
+              // Matching values found, you can perform further actions here
+              System.out.println("Matching row found: " + entry.getUserName());
+              loadEditScene(searchData); // Load editor window
+          }
+          else {
+          	System.out.println("Not Found!!!");
+          }
+      }
+
     }
-    
-    private void loadEditScene() {
-    	try {
+
+    private void loadEditScene(SearchData searchData) {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EditPage.fxml"));
             Parent root = loader.load();
             EditController editController = loader.getController();
-//            editController.setTextFieldValue("Value to set");
+
+            if (searchData != null) {
+                editController.populateFields(searchData);
+            }
+
             Stage stage = new Stage();
-            stage.setTitle("Search Effort Logs");
+            stage.setTitle("Edit Effort Logs");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
