@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage; // TEST LINE
 
 public class EditController {
+	// Declare the variables for the drop down menu's
     @FXML
     private ComboBox<String> projectComboBox1;
     @FXML
@@ -21,6 +22,7 @@ public class EditController {
     
     private Entry editableEntry;
     
+    // Handles "refreshing" the front end to reflect edits made to effort logs
     @FunctionalInterface
     public interface OnEditApplied {
         void handle();
@@ -31,6 +33,7 @@ public class EditController {
         this.onEditAppliedCallback = callback;
     }
     
+    // Fills in the menu boxes with information about the effort log the user is editing
     public void populateFields(Entry entry) {
         this.editableEntry = entry; // Store the reference to the Entry
         projectComboBox1.setValue(entry.getProject());
@@ -51,6 +54,7 @@ public class EditController {
         "Conceptual Design Plan","Detailed Design Plan", "Implementation Plan"));
     }
     
+    // Handles what happens when the user clicks the "apply" button
     @FXML
     private void handleApplyEdit() {
         if (editableEntry != null) {
@@ -65,6 +69,7 @@ public class EditController {
             editableEntry.setCategory(selectedEffort);
             editableEntry.setPlan(selectedPlan);
             
+            // "Refresh" front end and close window
             if (onEditAppliedCallback != null) {
                 onEditAppliedCallback.handle();
             }
