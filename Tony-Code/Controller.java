@@ -553,15 +553,25 @@ public class Controller {
 // -----------------------------------------------------------------------------------------
     //User data collection 
     public static class Entry {
-    	private final String userName;
-        private final String currentDate;
-        private final String currentTime;
-        private final String clockTimeElapsed;
-        private final String projectChosen;
-        private final String lifeCycleStepChosen;
-        private final String categoryChosen;
-        private final String planChosen;
-        private final Integer storypoints;
+//    	private final String userName;
+//        private final String currentDate;
+//        private final String currentTime;
+//        private final String clockTimeElapsed;
+//        private final String projectChosen;
+//        private final String lifeCycleStepChosen;
+//        private final String categoryChosen;
+//        private final String planChosen;
+//        private final Integer storypoints;
+    	
+    	private String userName;
+        private String currentDate;
+        private String currentTime;
+        private String clockTimeElapsed;
+        private String projectChosen;
+        private String lifeCycleStepChosen;
+        private String categoryChosen;
+        private String planChosen;
+        private Integer storypoints;
 
         public Entry(String userName, String currentDate, String currentTime, String clockTimeElapsed, String projectChosen, 
         String lifeCycleStepChosen, String categoryChosen, String planChosen, Integer storypoints) {
@@ -611,6 +621,23 @@ public class Controller {
         
         public int getStoryPoints() {
         	return storypoints;
+        }
+      
+        //TEST CODE ----- 
+        public void setProject(String projectChosen) {
+            this.projectChosen = projectChosen;
+        }
+
+        public void setLifeCycle(String lifeCycleStepChosen) {
+            this.lifeCycleStepChosen = lifeCycleStepChosen;
+        }
+
+        public void setCategory(String categoryChosen) {
+            this.categoryChosen = categoryChosen;
+        }
+
+        public void setPlan(String planChosen) {
+            this.planChosen = planChosen;
         }
     }
     
@@ -676,6 +703,9 @@ public class Controller {
     
     // EFFORT LOG SEARCH / EDIT BACK END ----------------------------------------------------------------------------------------------------
     @FXML
+    private Label label;
+    
+    @FXML
     private void handleSearchEffort(ActionEvent event) {
         String selectedProject = projectComboBox1.getValue();
         String selectedLifeCycle = lifecycleComboBox1.getValue();
@@ -693,25 +723,22 @@ public class Controller {
               entry.getPlan().equals(selectedPlan)) {
               // Matching values found, you can perform further actions here
               System.out.println("Matching row found: " + entry.getUserName());
-              loadEditScene(searchData); // Load editor window
+              loadEditScene(entry); 
           }
           else {
           	System.out.println("Not Found!!!");
+          	label.setText("Effort Log Not Found! Try Again!");
           }
       }
 
     }
-
-    private void loadEditScene(SearchData searchData) {
+    
+    private void loadEditScene(Entry entryToEdit) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EditPage.fxml"));
             Parent root = loader.load();
             EditController editController = loader.getController();
-
-            if (searchData != null) {
-                editController.populateFields(searchData);
-            }
-
+            editController.populateFields(entryToEdit); // Pass the actual Entry object
             Stage stage = new Stage();
             stage.setTitle("Edit Effort Logs");
             stage.setScene(new Scene(root));
@@ -720,5 +747,6 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
 }
 // --------------------------------------------------------------------------------------------------------
