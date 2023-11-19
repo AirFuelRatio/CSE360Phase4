@@ -21,6 +21,16 @@ public class EditController {
     
     private Entry editableEntry;
     
+    @FunctionalInterface
+    public interface OnEditApplied {
+        void handle();
+    }
+    private OnEditApplied onEditAppliedCallback;
+    
+    public void setOnEditAppliedCallback(OnEditApplied callback) {
+        this.onEditAppliedCallback = callback;
+    }
+    
     public void populateFields(Entry entry) {
         this.editableEntry = entry; // Store the reference to the Entry
         projectComboBox1.setValue(entry.getProject());
@@ -54,6 +64,10 @@ public class EditController {
             editableEntry.setLifeCycle(selectedLifeCycle);
             editableEntry.setCategory(selectedEffort);
             editableEntry.setPlan(selectedPlan);
+            
+            if (onEditAppliedCallback != null) {
+                onEditAppliedCallback.handle();
+            }
             
             closeEditWindow();
         }
