@@ -642,13 +642,13 @@ public class Controller {
     }
     
     // PLANNING POKER CODE ----------------------------------------------------------------------------------------------------
-    
+
     @FXML
     private void handlePlayerCount(ActionEvent event) {
         int playerCount = Integer.parseInt(playerCountTextField.getText()); // Convert to int (add error handling as necessary)
     }
 
-    
+    // Handles what happens when the button is pressed
     @FXML
     private void handleStoryPoints(ActionEvent event) {
         String selectedProject = projectComboBox.getValue();
@@ -686,6 +686,7 @@ public class Controller {
         }
     }
     
+    // Handles loading the planning poker game window
     private void loadPokerScene(int playerCount) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PokerPage.fxml"));
@@ -705,15 +706,13 @@ public class Controller {
     @FXML
     private Label label;
     
+    // Handle what happens when the "search" button is pressed on the edit tab
     @FXML
     private void handleSearchEffort(ActionEvent event) {
         String selectedProject = projectComboBox1.getValue();
         String selectedLifeCycle = lifecycleComboBox1.getValue();
         String selectedEffort = effortComboBox1.getValue();
         String selectedPlan = planComboBox1.getValue();
-
-        // Create an instance of SearchData with the selected values
-        SearchData searchData = new SearchData(selectedProject, selectedLifeCycle, selectedEffort, selectedPlan);
         
         for (Entry entry : timesList) {
           // Check if the values in the current row match the selected values
@@ -732,15 +731,16 @@ public class Controller {
       }
     }
     
+    // This handles loading the new effort log editor window
     private void loadEditScene(Entry entryToEdit) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EditPage.fxml"));
             Parent root = loader.load();
 
             EditController editController = loader.getController();
-            editController.populateFields(entryToEdit); // Pass the actual Entry object
+            editController.populateFields(entryToEdit); // Pass the Entry object
 
-            // Set up the callback
+            // Set up the callback to refresh the database page
             editController.setOnEditAppliedCallback(() -> refreshTimesTable());
 
             Stage stage = new Stage();
@@ -752,9 +752,9 @@ public class Controller {
         }
     }
 
+    // Refresh the table that holds the effort logs
     private void refreshTimesTable() {
         timesTable.refresh();
-        // Any additional logic to refresh or update data in timesTable
     }
 
 }
