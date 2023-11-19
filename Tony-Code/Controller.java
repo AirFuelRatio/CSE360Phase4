@@ -730,15 +730,19 @@ public class Controller {
           	label.setText("Effort Log Not Found! Try Again!");
           }
       }
-
     }
     
     private void loadEditScene(Entry entryToEdit) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EditPage.fxml"));
             Parent root = loader.load();
+
             EditController editController = loader.getController();
             editController.populateFields(entryToEdit); // Pass the actual Entry object
+
+            // Set up the callback
+            editController.setOnEditAppliedCallback(() -> refreshTimesTable());
+
             Stage stage = new Stage();
             stage.setTitle("Edit Effort Logs");
             stage.setScene(new Scene(root));
@@ -746,6 +750,11 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void refreshTimesTable() {
+        timesTable.refresh();
+        // Any additional logic to refresh or update data in timesTable
     }
 
 }
