@@ -28,7 +28,7 @@
                </font>
             </Label>
             <Label layoutX="255.0" layoutY="14.0" text="Input Information" />
-            <Button layoutX="265.0" layoutY="278.0" mnemonicParsing="false" text="Apply Edit" />
+            <Button layoutX="265.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleApplyEdit" text="Apply Edit" />
             <ComboBox fx:id="projectComboBox1" layoutX="45.0" layoutY="72.0" prefHeight="27.0" prefWidth="249.0" />
             <ComboBox fx:id="lifecycleComboBox1" layoutX="323.0" layoutY="72.0" prefHeight="27.0" prefWidth="243.0" />
             <ComboBox fx:id="effortComboBox1" layoutX="45.0" layoutY="126.0" prefHeight="27.0" prefWidth="131.0" />
