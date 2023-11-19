@@ -249,6 +249,7 @@
                      <ComboBox fx:id="lifecycleComboBox1" layoutX="323.0" layoutY="72.0" prefHeight="27.0" prefWidth="243.0" />
                      <ComboBox fx:id="effortComboBox1" layoutX="45.0" layoutY="126.0" prefHeight="27.0" prefWidth="131.0" />
                      <ComboBox fx:id="planComboBox1" layoutX="194.0" layoutY="126.0" prefHeight="27.0" prefWidth="371.0" />
+                     <Label fx:id="label" layoutX="271.0" layoutY="274.0" text="   " />
                   </children>
                </AnchorPane>
             </children>
