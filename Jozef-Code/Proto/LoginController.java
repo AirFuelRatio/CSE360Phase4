@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class LoginController {
 
     private HashMap<String, String> userDatabase = new HashMap<>();
-    private static final String COMPANY_ID = "1219104835";
+    private static final String COMPANY_ID = "1221497147";
 
     @FXML
     private TextField nameField;
@@ -138,7 +138,3 @@ public class LoginController {
         alert.showAndWait();
     }
 }
-
-
-
-
